@@ -9,8 +9,8 @@ import rootReducer from 'modules/index';
 import { createLogger } from 'redux-logger';
 import ReduxThunk from 'redux-thunk';
 
-
-const middleware = applyMiddleware(createLogger(), ReduxThunk);
+const logger = createLogger();
+const middleware = applyMiddleware(/* logger, */ ReduxThunk);
 const store = createStore(rootReducer, composeWithDevTools(middleware));
 
 

@@ -12,7 +12,7 @@ function ThunkMiddlewareSampleContainer( { post, users, loadingPost, loadingUser
       await getUsers();
     };
     fetch();
-
+  // }, []);
   }, [getPost, getUsers]);
 
   return (
@@ -28,11 +28,11 @@ function ThunkMiddlewareSampleContainer( { post, users, loadingPost, loadingUser
 }
 
 export default connect(
-  ({ thunkMiddlewareSample }) => ({
+  ({ thunkMiddlewareSample, loading }) => ({
     post: thunkMiddlewareSample.post.data,
     users: thunkMiddlewareSample.users.data,
-    loadingPost: thunkMiddlewareSample.post.loading,
-    loadingUsers: thunkMiddlewareSample.users.loading,
+    loadingPost: loading['thunkMiddlewareSample/GET_POST'],
+    loadingUsers: loading['thunkMiddlewareSample/GET_USERS'],
   }),
   dispatch => bindActionCreators({
     getPost,
