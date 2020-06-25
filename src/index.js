@@ -6,7 +6,7 @@ import rootReducer from 'modules/index';
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from 'react-redux';
 // import loggerMiddleware from "lib/loggerMiddleware";
-import { createLogger } from 'redux-logger';
+// import { createLogger } from 'redux-logger';
 import ReduxThunk from 'redux-thunk';
 
 // const logger = createLogger();
