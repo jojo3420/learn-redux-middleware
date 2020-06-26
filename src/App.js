@@ -1,7 +1,7 @@
 import React from 'react';
 import CounterContainer from "containers/CounterContainer";
 import ThunkMiddlewareSampleContainer from "containers/ThunkMiddlewareSampleContainer";
-
+import SagaMiddlewareSampleContainer from "containers/SagaMiddlewareSampleContainer";
 
 function App() {
   return (
@@ -9,7 +9,9 @@ function App() {
       <h1>learn redux middleware</h1>
       <CounterContainer />
       <hr/>
-      <ThunkMiddlewareSampleContainer />
+      {/*<ThunkMiddlewareSampleContainer />*/}
+      {/*<hr/>*/}
+      <SagaMiddlewareSampleContainer />
     </div>
   );
 }

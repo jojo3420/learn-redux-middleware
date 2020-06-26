@@ -85,6 +85,7 @@ watch.next({type: 'HELLO'});
 redux-saga는 위 코드와 비슷한 원리로 작동합니다. 
 제너레이터 함수의 작동 방식만 기본적으로 파악하고 있으면, 
 redux-saga에서 제공하는 여러 유용한 유틸 함수를 사용하여 액션을 쉽게 처리할 수 있습니다.
+https://redux-saga.js.org/
 
 
 
