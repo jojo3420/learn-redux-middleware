@@ -8,5 +8,5 @@ GET https://jsonplaceholder.typicode.com/users
  */
 
 
-export const getPost = id => axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+export const getPost = id => axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/123`);
 export const getUsers = () => axios.get(`https://jsonplaceholder.typicode.com/users`);

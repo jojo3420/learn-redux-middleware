@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Posts from 'components/Posts';
-import { connect } from 'react-redux';
-import {getPostById, getUsers } from 'modules/posts';
+import {connect} from 'react-redux';
+import {getPostById, getUsers} from 'modules/posts';
+import {GET_POST_BY, GET_USERS} from 'modules/posts';
 
 
-function PostsContainer({ post, users, loadingPost, loadingUsers, getPostById, getUsers }) {
+function PostsContainer({
+                          post, users,
+                          errorPost, errorUsers,
+                          loadingPost, loadingUsers,
+                          getPostById, getUsers
+                        }) {
 
   useEffect(() => {
     const fetch = async () => {
@@ -18,6 +24,8 @@ function PostsContainer({ post, users, loadingPost, loadingUsers, getPostById, g
     <Posts
       post={post}
       users={users}
+      errorPost={errorPost}
+      errorUsers={errorUsers}
       loadingPost={loadingPost}
       loadingUsers={loadingUsers}
     />
@@ -25,11 +33,13 @@ function PostsContainer({ post, users, loadingPost, loadingUsers, getPostById, g
 }
 
 export default connect(
-  ({ posts }) => ({
+  ({posts, loading, error}) => ({
     post: posts.post.data,
-    loadingPost: posts.post.loading,
+    loadingPost: loading[GET_POST_BY],
     users: posts.users.data,
-    loadingUsers: posts.users.loading,
+    loadingUsers: loading[GET_USERS],
+    errorPost: error[GET_POST_BY],
+    errorUsers: error[GET_USERS],
   }), {
     getPostById,
     getUsers,

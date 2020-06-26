@@ -5,10 +5,10 @@ import createRequestThunk from "lib/createRequestThunk";
 
 // Actions
 const PREFIX = 'posts';
-const GET_POST_BY =  `${PREFIX}/GET_POST_BY`;
+export const GET_POST_BY =  `${PREFIX}/GET_POST_BY`;
 const GET_POST_BY_SUCCESS =  `${GET_POST_BY}_SUCCESS`;
 const GET_POST_BY_FAILURE =  `${GET_POST_BY}_FAILURE`;
-const GET_USERS = `${PREFIX}/GET_USERS`;
+export const GET_USERS = `${PREFIX}/GET_USERS`;
 const GET_USERS_SUCCESS = `${GET_USERS}_SUCCESS`;
 const GET_USERS_FAILURE = `${GET_USERS}_FAILURE`;
 
@@ -46,38 +46,28 @@ export const getUsers = createRequestThunk(GET_USERS, api.getUsers);
 const INITIAL_STATE = {
   post: {
     data: null,
-    loading: false,
-    error: null,
+    // loading: false,
+    // error: null,
   },
   users: {
     data: null,
-    loading: false,
-    error: null,
+    // loading: false,
+    // error: null,
   },
 };
 
 const posts = handleActions({
-  [GET_POST_BY]: (state, { loading }) => produce(state, draft => {
-    draft.post.loading = loading;
-  }),
-  [GET_POST_BY_FAILURE]: (state, { error, loading }) => produce(state, draft => {
-    draft.post.loading = loading;
-    draft.post.error = error;
-  }),
+  // [GET_POST_BY_FAILURE]: (state, { error, loading }) => produce(state, draft => {
+  //   draft.post.error = error;
+  // }),
   [GET_POST_BY_SUCCESS]: (state, { payload: post, loading }) => produce(state, draft => {
     draft.post.data = post;
-    draft.post.loading = loading;
   }),
-  [GET_USERS]: (state, { loading }) => produce(state, draft => {
-    draft.users.loading = loading;
-  }),
-  [GET_USERS_FAILURE]: (state, { error, loading }) => produce(state, draft => {
-    draft.users.loading = loading;
-    draft.users.error = error;
-  }),
+  // [GET_USERS_FAILURE]: (state, { error, loading }) => produce(state, draft => {
+  //   draft.users.error = error;
+  // }),
   [GET_USERS_SUCCESS]: (state, { payload: users, loading }) => produce(state, draft => {
     draft.users.data = users;
-    draft.users.loading = loading;
   }),
 }, INITIAL_STATE);
 
